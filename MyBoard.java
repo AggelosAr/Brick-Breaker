@@ -57,10 +57,11 @@ public class MyBoard extends JPanel implements KeyListener, ActionListener{
 
     private void InitializeBoard()
     {
+        InitializeEnemies();
         InitializeScoreLives();
         InitializePlayer();
         InitializeBall();
-        InitializeEnemies();
+        
     }
 
     private void update_score_lives()
@@ -135,7 +136,7 @@ public class MyBoard extends JPanel implements KeyListener, ActionListener{
 
         for (int i = 1; i < lives_count + 1; i ++)
         {
-            Life life = new Life("heart.png");
+            Life life = new Life("imgs/heart.png");
             lives.add(life);
             life.setLocation(PANEL_WIDTH - i*life.width, 0);
             this.add(life);
@@ -149,7 +150,7 @@ public class MyBoard extends JPanel implements KeyListener, ActionListener{
 
     private void InitializePlayer()
     {
-        player = new Moveable("player.png");
+        player = new Moveable("imgs/player.png");
         player.location_X = PANEL_WIDTH/2 - player.width/2;
         player.location_Y = PANEL_HEIGHT - player.height;
         player.setLocation(player.location_X, player.location_Y);
@@ -160,7 +161,7 @@ public class MyBoard extends JPanel implements KeyListener, ActionListener{
 
     private void InitializeBall()
     {
-        ball = new Moveable("ball.png");
+        ball = new Moveable("imgs/ball.png");
         ball.location_X = player.location_X + player.width/2 - ball.width/2;
         ball.location_Y = player.location_Y  - ball.width;
         ball.setLocation(ball.location_X, ball.location_Y);
@@ -176,7 +177,7 @@ public class MyBoard extends JPanel implements KeyListener, ActionListener{
         int rows = 5;
         int cols = 8;
         total_tiles = rows*cols;
-        Moveable tile = new Moveable("tile.png");
+        Moveable tile = new Moveable("imgs/tile.png");
         ArrayList<Moveable> tmp;
 
         tiles = new ArrayList<ArrayList<Moveable>>();
@@ -186,7 +187,7 @@ public class MyBoard extends JPanel implements KeyListener, ActionListener{
             tmp = new ArrayList<Moveable>();
             for (int j = 0; j < cols; j ++)
             {
-                tile = new Moveable("tile.png");
+                tile = new Moveable("imgs/tile.png");
                 tile.location_X = start_position_x + j*tile.width;
                 tile.location_Y = start_position_y + i*tile.height;
                 tile.setLocation(tile.location_X, tile.location_Y);
